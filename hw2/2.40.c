@@ -1,3 +1,4 @@
+//求两个稀疏多项式的结果,并存放在新辟的空间中
 #include <stdio.h>
 
 typedef struct{

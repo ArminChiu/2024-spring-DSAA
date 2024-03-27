@@ -1,3 +1,4 @@
+//单链表的就地逆置
 #include <stdio.h>
 
 #define LIST_INIT_SIZE 100

@@ -1,3 +1,4 @@
+//求稀疏多项式的值,空间复杂度为O(n)(n为项数)
 #include <stdio.h>
 
 typedef struct{
