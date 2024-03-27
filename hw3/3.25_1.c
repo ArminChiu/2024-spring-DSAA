@@ -1,4 +1,6 @@
+//递归求函数值
 #include <stdio.h>
+
 //递归算法
 int function(int n){
     int result;

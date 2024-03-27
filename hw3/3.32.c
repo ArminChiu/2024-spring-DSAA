@@ -1,5 +1,7 @@
+//循环队列求k阶斐波那契数列前n+1项值
 #include <stdio.h>
 #include <stdlib.h>
+
 //定义循环链表
 typedef int ElemType;
 typedef struct queue{
@@ -27,6 +29,7 @@ void calc(CircularQueue *cq,int k){
     cq->rear=((cq->rear)+1)%k;
     printf("%d\n",result);
 }
+
 //输入k和n,给出k阶斐波那契数列前n+1项的值
 int main(){
     void init(CircularQueue *cq,int k);

@@ -1,12 +1,15 @@
+//回文序列判断
 #include <stdio.h>
 #include <stdlib.h>
 //定义栈
 #define MAX_STACK_SIZE 100
+
 typedef int ElemType;
 typedef struct{
     ElemType *base;
     int top;
 }SqStack;
+
 //初始化
 void init(SqStack *s){
     s->base=(ElemType *)malloc(MAX_STACK_SIZE*sizeof(ElemType));
@@ -41,6 +44,7 @@ void getmyline(char a[]){
     }
     a[length]='\0';
 }
+
 int main(){
     void init(SqStack *s);
     void push(SqStack *s,ElemType e);

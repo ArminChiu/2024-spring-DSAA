@@ -1,4 +1,6 @@
+//非递归求函数值
 #include <stdio.h>
+
 //消除递归
 int function(int n){
     int result=1;
