@@ -1,3 +1,4 @@
+//求字符串各字符出现次数
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

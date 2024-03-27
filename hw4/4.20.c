@@ -1,3 +1,4 @@
+//删除主串中的模式串
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
