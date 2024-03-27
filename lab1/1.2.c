@@ -1,3 +1,4 @@
+//ok
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -11,7 +12,6 @@ typedef struct LinkedList {
     int val;
     struct LinkedList *next;
 } LinkedList;
-
 
 void solve(LinkedList *header, int mx) {
     LinkedList *LNode;
