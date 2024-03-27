@@ -1,3 +1,4 @@
+//给定链表,删除倒数第n个节点,并将其后一个节点的值复制到前一个节点
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

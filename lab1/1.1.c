@@ -1,3 +1,4 @@
+//给定长度为n的链表,求中间节点的值(序号向上取整)
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -21,14 +22,14 @@ int solve(LinkedList *header) {
     while(fast->next!=NULL){
         fast=fast->next;
         if(fast->next==NULL){
-            //奇数结点在此返回
+            //奇数节点在此返回
             return low->val;
         }else{
             low=low->next;
             fast=fast->next;
         }
     }
-    //偶数结点在此返回
+    //偶数节点在此返回
     return low->val;
 }
 

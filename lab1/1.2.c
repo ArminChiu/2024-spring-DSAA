@@ -1,4 +1,4 @@
-//ok
+//给定链表,将节点值大于n的节点删除
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
