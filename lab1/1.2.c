@@ -21,7 +21,7 @@ void solve(LinkedList *header, int mx) {
     while(LNode!=NULL){
         if(LNode->val>mx){
             if(LNode->next==NULL){
-                LNode->val=666;//啊？神之一手！实现最终debug的居然是这条（说明代码运行逻辑有漏洞）
+                LNode->val=666;//啊？神之一手！实现最终debug的居然是这条(说明代码运行逻辑有漏洞)
                 LBehind->next=NULL;
                 return;
             }else{
