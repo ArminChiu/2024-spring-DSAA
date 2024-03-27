@@ -1,69 +1,62 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#include <ctype.h>
+#include <assert.h>
+#include <string.h>
+#include <time.h>
 
-#define LIST_INIT_SIZE 1000
-#define LISTINCREMENT 100
 
-typedef int Elemtype;
-//单向链表
-typedef struct LNode{
-    Elemtype data;
-    LinkList *next;
-}LinkList;
+typedef struct LinkedList {
+    int val;
+    struct LinkedList *next;
+} LinkedList;
 
-LinkList * newlist(int n){
-    //头结点，前后结点
-    LinkList *LHead=(LinkList *)malloc(sizeof(LinkList));
-    LinkList *LFront;
-    LinkList *LBehind;
-    LFront=LHead;
-    int data;
-    for(int i=1;i<=n-1;i++){
-        scanf("%d ",&data);
-        //给下一结点分配空间
-        LBehind=(LinkList *)malloc(sizeof(LinkList));
-        LBehind->data=data;
-        LFront->next=LBehind;
-        LFront=LBehind;
-    }
-    scanf("%d",&data);
-    //给下一结点分配空间
-    LBehind=(LinkList *)malloc(sizeof(LinkList));
-    LBehind->data=data;
-    LFront->next=LBehind;
-    LBehind->next=NULL;
-    return LHead;
-}
 
-//输出中间结点的值
-Elemtype searchmid(LinkList *head){
-    LinkList *fast;
-    LinkList *low;
-    fast=head;
-    low=head;
+int solve(LinkedList *header) {
+    LinkedList *fast;
+    LinkedList *low;
+    fast=header;
+    low=header;
     while(fast->next!=NULL){
-        low=low->next;
         fast=fast->next;
         if(fast->next==NULL){
             //奇数结点在此返回
-            return low->data;
+            return low->val;
         }else{
+            low=low->next;
             fast=fast->next;
         }
     }
     //偶数结点在此返回
-    return low->data;
+    return low->val;
 }
 
-int main(){
-    LinkList *LHead;
-    Elemtype mid;
-    getchar();
-    getchar();
+
+
+
+int main() {
     int n;
-    scanf("%d",&n);
-    LHead=newlist(n);
-    mid=searchmid(LHead);
-    printf("val = 6\n真实程序输出是：\n%d\n",mid);
+    scanf("%d", &n);
+    LinkedList *header = NULL;
+    LinkedList *tail = NULL;
+    for (int i = 1; i <= n; i++) {
+        int val; scanf("%d", &val);
+        if (!header) {
+            header = (LinkedList *)malloc(sizeof(LinkedList));
+            tail = header;
+            tail->next = NULL;
+            tail->val = val;
+        } else {
+            LinkedList *node =  (LinkedList *)malloc(sizeof(LinkedList));
+            node->val = val;
+            node->next = NULL;
+            tail->next = node;
+            tail = node;
+        }    
+    }
+
+    int ans = solve(header);
+    printf("%d\n", ans);
     return 0;
 }
