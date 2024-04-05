@@ -65,20 +65,20 @@ void PrintHash(HashTable* H){
     }
 }
 
-//平均查找长度
-double ASL(HashTable* H){
-    int sum = 0;
-    for(int i = 0;i < H->size;i++){
-        if(H->elemArray[i].key != 0){
-            int index = (3*H->elemArray[i].key) % H->size;
-            int distance = (7*H->elemArray[i].key) % 10 + 1;
-            while(H->elemArray[index].key != H->elemArray[i].key){
-                index = (index + distance) % H->size;
-            }
-            sum += distance;
-        }
+//查找长度
+int AverageLength(HashTable* H,int key){
+    int sum=0;
+    int index = (3*key) % H->size;
+    int distance = (7*key) % 10 + 1;
+    while(H->elemArray[index].key != key && H->elemArray[index].key != 0){
+        index = (index + distance) % H->size;
+        sum++;
     }
-    return (double)sum / H->size;
+    if(H->elemArray[index].key == key){
+        sum++;
+        return sum;
+    }
+    return 0;
 }
 
 
@@ -89,5 +89,10 @@ int main(){
         InsertHash(H,array[i],array[i]);
     }
     PrintHash(H);
-    printf("ASL:%lf\n",ASL(H));
+    float averagesum=0.0;
+    for(int i = 0;i < 8;i++){
+        averagesum=averagesum+AverageLength(H,array[i]);
+    }
+    averagesum=averagesum/8;
+    printf("AverageLength:%lf\n",averagesum);
 }
