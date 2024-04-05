@@ -68,7 +68,14 @@ void PrintHash(HashTable* H){
 //按关键字第一个字母顺序打印哈希表
 void PrintHash2(HashTable* H){
     for(int i = 0;i < 26;i++){
-        
+        int index = i % H->size;
+        int distance = 1;
+        for(int j = 0;j<H->size;j++){
+            if(H->elemArray[index].key == i){
+                printf("key:%d value:%s\n",H->elemArray[index].key+'a',H->elemArray[index].value);
+            }
+            index = (index + distance) % H->size;
+        }
     }
 }
 
