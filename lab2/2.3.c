@@ -1,8 +1,4 @@
-/**
- * @ IIE, CAS.
- * @ Info  全为1的面积最大的子矩阵
- * 
-*/
+//全为1的面积最大的子矩阵
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

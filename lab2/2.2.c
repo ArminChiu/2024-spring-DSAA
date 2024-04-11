@@ -1,8 +1,4 @@
-/**
- * @ IIE, CAS.
- * @ Info  不是很有效的括号匹配
- * 
-*/
+//不是很有效的括号匹配
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
