@@ -62,9 +62,8 @@ void MidOrder(Node *T, int x){
         //退栈，输出右节点，转向左子树
         if(top != -1){
             p = stack[top--];
-            if(p->data < x){
+            if(p->data < x)
                 break;
-            }
             printf("%d ", p->data);
             p = p->lchild;
         }
