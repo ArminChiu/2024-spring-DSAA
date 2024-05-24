@@ -57,7 +57,7 @@ void function3(Queue *q){
     printf("\n\n");
 }
 
-//菜单界面
+//菜单主界面
 void function(Queue *q){
     int choice=0;
     while(choice!=4 && jiuhao <= 1000){

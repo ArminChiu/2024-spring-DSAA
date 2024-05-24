@@ -85,7 +85,7 @@ int main(){
     init(t);
     printf("请输入母串s\n");
     getmyline(s);
-    printf("请输入子串t\n");
+    printf("请输入模式串t\n");
     getmyline(t);
     int i=0;
     StrDex(s,t,i);
