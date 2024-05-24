@@ -15,6 +15,7 @@ int main() {
     tree[0].parent = -1;
     tree[0].depth = 0;
     scanf("%d %d", &n, &q);
+    
     for (i = 1; i < n; i++) {
         scanf("%d", &parent);
         parent--;
