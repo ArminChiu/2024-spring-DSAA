@@ -195,7 +195,7 @@ int main(){
     printf("跳表层数：%d\n", list->level);
     printf("跳表节点数：%d\n", list->size);
 
-/*  小范围测试(40个数)用于打印
+/*  小范围测试(40个数) 用于打印
     for(int i = 0; i < 41; i++){
         InsertNode(list, (i*7)%53);
     }

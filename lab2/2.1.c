@@ -56,5 +56,3 @@ int main(){
     printf("%d\n", max(list));
     return 0;
 }
-
-

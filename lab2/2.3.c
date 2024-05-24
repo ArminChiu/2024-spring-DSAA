@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
+
 int largestRectangleArea(int* heights, int heightsSize) {
     //返回柱状图的最大面积
     int *stack = (int *)malloc((heightsSize + 1) * sizeof(int));
@@ -23,6 +24,7 @@ int largestRectangleArea(int* heights, int heightsSize) {
     free(stack);
     return maxArea;
 }
+
 int maximalRectangle(char** matrix, int matrixSize, int* matrixColSize) {
     // 省略函数内部实现
     if (matrixSize == 0) return 0;
@@ -44,6 +46,7 @@ int maximalRectangle(char** matrix, int matrixSize, int* matrixColSize) {
     free(heights);
     return maxRectangle;
 }
+
 int main() {
     int m, n;
     scanf("%d %d", &m, &n); 

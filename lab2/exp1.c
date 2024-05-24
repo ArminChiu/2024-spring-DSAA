@@ -49,7 +49,6 @@ int isCycle(List *list){
             return 1;
         }
     }
-    //不成环
     return 0;
 }
 

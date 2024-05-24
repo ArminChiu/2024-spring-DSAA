@@ -69,7 +69,6 @@ int main(){
     //记录各操作用时
     clock_t start, end;
     double time;
-
     //创建了一个有10000个节点的链表
     start = clock();
     LinkList L = CreateList();

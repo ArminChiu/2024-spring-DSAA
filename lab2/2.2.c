@@ -96,6 +96,5 @@ int main() {
     } else {
         printf("%d\n", 0);
     }
-
     return 0;
 }

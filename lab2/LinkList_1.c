@@ -118,7 +118,7 @@ int main(){
     printf("删除节点用时：%f 秒\n", time);
     printf("链表节点数：%d\n", size);
 
-    //释放链表
+    //释放链表空间
     Node *p = L;
     Node *q = p;
     while(p){
