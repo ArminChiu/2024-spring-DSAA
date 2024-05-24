@@ -1,11 +1,4 @@
-/**
- * @ IIE, CAS.
- * @ Info  平衡二叉树判定
- * 
-*/
-
-// mmh % everyone!!!!
-// #pragma GCC optimize(2)
+//平衡二叉树判定
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

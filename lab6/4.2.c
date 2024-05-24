@@ -1,10 +1,4 @@
-/**
- * @ IIE, CAS.
- * @ Info  构建二叉搜索树
- * 
-*/
-
-// mmh % everyone!!!!
+//构建二叉搜索树
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -13,14 +7,10 @@
 #include <string.h>
 #include <time.h>
 
-
-
 typedef struct Tree {
     int val; // 数值
     struct Tree *left, *right; // 左右孩子指针
 } Tree;
-
-
 
 Tree* buildTree(int *preorder, int n) {
     if (n == 0) {
@@ -44,10 +34,6 @@ Tree* buildTree(int *preorder, int n) {
     root->right = buildTree(preorder + i + 1, n - i - 1);
     return root;
 }
-
-
-
-
 
 typedef struct Queue {
     struct Tree *node;
