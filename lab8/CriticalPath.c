@@ -39,6 +39,42 @@ int *FindinDegree(ALGraph G){ //求入度
     return indegree;
 }
 
+int TopologicalSort(ALGraph G, Stack *T, int *ve){ //拓扑排序，求出各点ve值
+    int *indegree = FindinDegree(G); //求入度
+    T->top = -1; //初始化栈
+    for (int i = 0; i < G.vexnum; i++){ //初始化ve值
+        ve[i] = 0;
+    }
+    
+    for (int i = 0; i < G.vexnum; i++){ //将入度为0的点入栈
+        if (indegree[i] == 0){
+            T->data[++T->top] = i;
+        }
+    }
+    int count = 0;
+    while (T->top != -1){ //栈未空时
+        int v = T->data[T->top--]; //出栈
+        count++;
+        printf("%d ", v);
+        for (int j = 0; j < G.edgenum; j++){ //遍历所有边，更新ve值
+            if (G.edge[j].begin == v){ 
+                indegree[G.edge[j].end]--; //找到以v为起点的边，更新终点的入度
+                if (ve[v] + G.edge[j].weight > ve[G.edge[j].end]){ //更新ve值
+                    ve[G.edge[j].end] = ve[v] + G.edge[j].weight;
+                }
+                if (indegree[G.edge[j].end] == 0){ //将入度为0的点入栈
+                    T->data[++T->top] = G.edge[j].end;
+                }
+            }
+        }
+    }
+    printf("\n");
+    if (count < G.vexnum){ //判断是否有回路
+        return ERROR;
+    }
+    return OK;
+}
+
 int CriticalPath(ALGraph G){
     Stack T;
     int *ve = (int *)malloc(sizeof(int) * G.vexnum); //记录各点ve值
@@ -69,40 +105,6 @@ int CriticalPath(ALGraph G){
                 }
             }
         }
-    }
-    return OK;
-}
-
-int TopologicalSort(ALGraph G, Stack *T, int *ve){ //拓扑排序，求出各点ve值
-    int *indegree = FindinDegree(G); //求入度
-    T->top = -1; //初始化栈
-    for (int i = 0; i < G.vexnum; i++){ //初始化ve值
-        ve[i] = 0;
-    }
-    
-    for (int i = 0; i < G.vexnum; i++){ //将入度为0的点入栈
-        if (indegree[i] == 0){
-            T->data[++T->top] = i;
-        }
-    }
-    int count = 0;
-    while (T->top != -1){ //栈未空时
-        int v = T->data[T->top--]; //出栈
-        count++;
-        for (int j = 0; j < G.edgenum; j++){ //遍历所有边，更新ve值
-            if (G.edge[j].begin == v){ 
-                indegree[G.edge[j].end]--; //找到以v为起点的边，更新终点的入度
-                if (ve[v] + G.edge[j].weight > ve[G.edge[j].end]){ //更新ve值
-                    ve[G.edge[j].end] = ve[v] + G.edge[j].weight;
-                }
-                if (indegree[G.edge[j].end] == 0){ //将入度为0的点入栈
-                    T->data[++T->top] = G.edge[j].end;
-                }
-            }
-        }
-    }
-    if (count < G.vexnum){ //判断是否有回路
-        return ERROR;
     }
     return OK;
 }
