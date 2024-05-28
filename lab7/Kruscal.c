@@ -35,16 +35,15 @@ void Kruskal(Graph *G){
     }
     int sum = 0;
     for (int i = 0; i < G->edgeNum; i++){
-        int begin = G->edges[i].begin;
-        int end = G->edges[i].end;
-        int weight = G->edges[i].weight;
-        int n = Find(parent, begin);
-        int m = Find(parent, end);
+        int n = Find(parent, G->edges[i].begin);
+        int m = Find(parent, G->edges[i].end);
         if (n != m){
             parent[m] = n;
-            printf("(%d,%d) %d\n", begin, end, weight);
+            printf("(%d,%d) %d\n", G->edges[i].begin, G->edges[i].end, G->edges[i].weight);
+            sum += G->edges[i].weight;
         }
     } //输出最小生成树的边
+    printf("sum=%d\n", sum);
 }
 
 int main(){
